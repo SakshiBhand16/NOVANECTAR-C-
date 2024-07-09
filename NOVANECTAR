@@ -1,0 +1,142 @@
+#include <iostream>
+#include <cmath>
+#include <stdexcept>
+
+using namespace std;
+
+// Function to add two numbers
+double add(double num1, double num2) {
+    return num1 + num2;
+}
+
+// Function to subtract two numbers
+double subtract(double num1, double num2) {
+    return num1 - num2;
+}
+
+// Function to multiply two numbers
+double multiply(double num1, double num2) {
+    return num1 * num2;
+}
+
+// Function to divide two numbers
+double divide(double num1, double num2) {
+    if (num2 == 0) {
+        throw runtime_error("Error: Division by zero!");
+    }
+    return num1 / num2;
+}
+
+// Function to calculate square root
+double sqrt(double num) {
+    if (num < 0) {
+        throw runtime_error("Error: Square root of negative number!");
+    }
+    return sqrt(num);
+}
+
+// Function to calculate exponentiation
+double pow(double num1, double num2) {
+    return pow(num1, num2);
+}
+
+// Function to calculate sine
+double sin(double num) {
+    return sin(num);
+}
+
+// Function to calculate cosine
+double cos(double num) {
+    return cos(num);
+}
+
+// Function to calculate tangent
+double tan(double num) {
+    return tan(num);
+}
+
+int main() {
+    int choice;
+    double num1, num2;
+
+    cout << "Digital Calculator" << endl;
+    cout << "-----------------" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+    cout << "5. Square Root" << endl;
+    cout << "6. Exponentiation" << endl;
+    cout << "7. Sine" << endl;
+    cout << "8. Cosine" << endl;
+    cout << "9. Tangent" << endl;
+    cout << "10. Quit" << endl;
+
+    while (true) {
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << add(num1, num2) << endl;
+                break;
+            case 2:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << subtract(num1, num2) << endl;
+                break;
+            case 3:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << multiply(num1, num2) << endl;
+                break;
+            case 4:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                try {
+                    cout << "Result: " << divide(num1, num2) << endl;
+                } catch (const runtime_error& e) {
+                    cout << e.what() << endl;
+                }
+                break;
+            case 5:
+                cout << "Enter a number: ";
+                cin >> num1;
+                try {
+                    cout << "Result: " << sqrt(num1) << endl;
+                } catch (const runtime_error& e) {
+                    cout << e.what() << endl;
+                }
+                break;
+            case 6:
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "Result: " << pow(num1, num2) << endl;
+                break;
+            case 7:
+                cout << "Enter a number: ";
+                cin >> num1;
+                cout << "Result: " << sin(num1) << endl;
+                break;
+            case 8:
+                cout << "Enter a number: ";
+                cin >> num1;
+                cout << "Result: " << cos(num1) << endl;
+                break;
+            case 9:
+                cout << "Enter a number: ";
+                cin >> num1;
+                cout << "Result: " << tan(num1) << endl;
+                break;
+            case 10:
+                cout << "Goodbye!" << endl;
+                return 0;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+        }
+    }
+
+    return 0;
+}
